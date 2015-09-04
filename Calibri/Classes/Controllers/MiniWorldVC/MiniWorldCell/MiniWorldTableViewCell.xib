@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="axG-R2-jcP" customClass="MiniWolrdTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="79"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axG-R2-jcP" id="KmL-OR-moI">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hxT-oj-IiS">
+                        <rect key="frame" x="0.0" y="48" width="370" height="30"/>
+                        <color key="backgroundColor" red="0.80000001192092896" green="1" blue="0.40000000596046448" alpha="0.79000000000000004" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="370" id="O79-Tx-Hoc"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yw8-Ic-AHz" userLabel="belowButton">
+                        <rect key="frame" x="0.0" y="0.0" width="363" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="aBI-2h-Gkb"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40j-Wp-wvk" userLabel="headButton">
+                        <rect key="frame" x="3" y="21" width="50" height="50"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="R6L-ZG-a7n"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1b-y3-OVO" userLabel="zanButton">
+                        <rect key="frame" x="287" y="54" width="20" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="rwu-4c-vxe"/>
+                        </constraints>
+                        <state key="normal" image="unget">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="53" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFO-ac-sVT" userLabel="zanNumberLabel">
+                        <rect key="frame" x="317" y="52" width="30" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="dgu-sZ-WPF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="highlightedColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yw8-Ic-AHz" firstAttribute="leading" secondItem="KmL-OR-moI" secondAttribute="leading" id="1aB-oH-bfu"/>
+                    <constraint firstItem="hxT-oj-IiS" firstAttribute="leading" secondItem="KmL-OR-moI" secondAttribute="leading" id="7rZ-D8-ukD"/>
+                    <constraint firstItem="40j-Wp-wvk" firstAttribute="leading" secondItem="KmL-OR-moI" secondAttribute="leading" constant="3" id="BRr-kR-3gV"/>
+                    <constraint firstAttribute="bottom" secondItem="hxT-oj-IiS" secondAttribute="bottom" id="Jsp-iB-9Ez"/>
+                    <constraint firstAttribute="bottom" secondItem="40j-Wp-wvk" secondAttribute="bottom" constant="7" id="KLQ-lF-6vt"/>
+                    <constraint firstAttribute="bottom" secondItem="Q1b-y3-OVO" secondAttribute="bottom" constant="6" id="LoQ-0k-BjR"/>
+                    <constraint firstAttribute="trailing" secondItem="JFO-ac-sVT" secondAttribute="trailing" constant="16" id="TIn-XU-lRH"/>
+                    <constraint firstItem="JFO-ac-sVT" firstAttribute="top" secondItem="yw8-Ic-AHz" secondAttribute="bottom" constant="4" id="UkU-hc-P9y"/>
+                    <constraint firstItem="yw8-Ic-AHz" firstAttribute="top" secondItem="KmL-OR-moI" secondAttribute="top" id="eU0-er-KMN"/>
+                    <constraint firstItem="40j-Wp-wvk" firstAttribute="top" secondItem="KmL-OR-moI" secondAttribute="top" constant="21" id="f6T-Lg-pjJ"/>
+                    <constraint firstAttribute="bottom" secondItem="JFO-ac-sVT" secondAttribute="bottom" constant="5" id="hGx-3h-JKg"/>
+                    <constraint firstItem="JFO-ac-sVT" firstAttribute="leading" secondItem="Q1b-y3-OVO" secondAttribute="trailing" constant="10" id="j7V-1R-CbS"/>
+                    <constraint firstAttribute="trailing" secondItem="yw8-Ic-AHz" secondAttribute="trailing" id="k7c-RW-fJR"/>
+                    <constraint firstItem="hxT-oj-IiS" firstAttribute="top" secondItem="yw8-Ic-AHz" secondAttribute="bottom" id="kOL-mw-LYd"/>
+                    <constraint firstItem="Q1b-y3-OVO" firstAttribute="top" secondItem="yw8-Ic-AHz" secondAttribute="bottom" constant="6" id="qdF-zn-meg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="belowButton" destination="yw8-Ic-AHz" id="R1P-g6-pP6"/>
+                <outlet property="belowImageView" destination="hxT-oj-IiS" id="0VO-zw-vag"/>
+                <outlet property="headPortraitButton" destination="40j-Wp-wvk" id="9ob-b3-inP"/>
+                <outlet property="zanButton" destination="Q1b-y3-OVO" id="e4g-6P-Szf"/>
+                <outlet property="zanNumberLabel" destination="JFO-ac-sVT" id="PSF-0j-tos"/>
+            </connections>
+            <point key="canvasLocation" x="459.5" y="268.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="unget" width="133" height="117"/>
+    </resources>
+</document>
