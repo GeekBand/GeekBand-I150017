@@ -26,6 +26,8 @@
 @property (strong, nonatomic) UIImage* headImage;
 @property (strong, nonatomic) UILabel* userName;
 @property (nonatomic)BOOL ifLogin;    //判断是否登陆(默认NO) - 用于抽屉初始化并读取不同页面
+@property (strong, nonatomic) NSMutableArray *zanNumberArray;
+@property (strong, nonatomic) NSMutableArray *ifZanArray;
 
 @end
 

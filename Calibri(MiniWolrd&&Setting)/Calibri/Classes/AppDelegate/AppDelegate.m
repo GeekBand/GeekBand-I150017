@@ -41,6 +41,9 @@
         self.leftSlideViewController = [[LeftSlideViewController alloc] initWithLeftView:leftVC andMainView:self.rootNavigationController];
         self.window.rootViewController = self.leftSlideViewController;
     }
+    
+    [self constructZanNumberRandomly];
+    [self constructIfZanArray:self.zanNumberArray];
     return YES;
 }
 
@@ -60,6 +63,28 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+}
+
+-(void)constructZanNumberRandomly{
+    NSInteger temp;
+    self.zanNumberArray = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i<10; ++i) {
+        temp = arc4random() % 400;
+        NSNumber *tempNumber = [NSNumber numberWithInteger:temp];
+        [self.zanNumberArray addObject:tempNumber];
+    }
+    
+}
+
+-(void)constructIfZanArray:(NSMutableArray *)cellArray{
+    NSString *ifZan = @"NO";
+    self.ifZanArray = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i<[cellArray count]; ++i) {
+        [self.ifZanArray addObject:ifZan];
+    }
+    
 }
 
 @end

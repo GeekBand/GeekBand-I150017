@@ -23,7 +23,6 @@
     [self headPortraitButtonConstruct];
     [self belowImageViewConstruct];
     [self belowButtonConstruct];
-    [self zanConstruct];
     [self.zanButton addTarget:self action:@selector(zanButtonCliked)
              forControlEvents:UIControlEventTouchUpInside];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -41,19 +40,6 @@
     [self.headPortraitButton addTarget:self
                                 action:@selector(headPortraitButtonCliked)
                       forControlEvents:UIControlEventTouchUpInside];
-}
-
--(void)zanConstruct{
-    if (!self.ifZan) {
-        self.zanButton.alpha = 0.2;
-        UIImage *image = [UIImage imageNamed:@"unget"];
-        [self.zanButton setBackgroundImage:image forState:UIControlStateNormal];
-    }else{
-        self.zanButton.alpha = 1;
-        UIImage *image = [UIImage imageNamed:@"get"];
-        [self.zanButton setBackgroundImage:image forState:UIControlStateNormal];
-    }
-
 }
 
 - (void)belowImageViewConstruct{
@@ -80,8 +66,8 @@
 
 - (void)zanButtonCliked{
     NSInteger temp;
-    if (!self.ifZan) {
-        self.ifZan = YES;
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    if ([[appdelegate.ifZanArray objectAtIndex:self.indexPath.row] isEqualToString:@"NO"]) {
         temp = [self.zanNumberLabel.text integerValue];
         ++ temp;
         self.zanNumberLabel.text = [NSString stringWithFormat:@"%ld",(long)temp];
@@ -89,8 +75,19 @@
         UIImage *image = [UIImage imageNamed:@"get"];
         [self.zanButton setBackgroundImage:image forState:UIControlStateNormal];
         NSLog(@"zan");
+        
+        //从全局变量取自身cell的值，加一后以新值取代
+        NSNumber *changeNumber = [appdelegate.zanNumberArray objectAtIndex:self.indexPath.row];
+        NSInteger changeValue = [changeNumber integerValue];
+        ++changeValue;
+        changeNumber = [NSNumber numberWithInteger:changeValue];
+        [appdelegate.zanNumberArray replaceObjectAtIndex:self.indexPath.row withObject:changeNumber];
+        //从全局变量取值自身cell的ifZan值，若原为NO则改成YES
+        [appdelegate.ifZanArray objectAtIndex:self.indexPath.row];
+        NSString *tempString = @"YES";
+        [appdelegate.ifZanArray replaceObjectAtIndex:self.indexPath.row withObject:tempString];
+        
     }else{
-        self.ifZan = NO;
         temp = [self.zanNumberLabel.text integerValue];
         -- temp;
         self.zanNumberLabel.text = [NSString stringWithFormat:@"%ld",(long)temp];
@@ -98,6 +95,18 @@
         UIImage *image = [UIImage imageNamed:@"unget"];
         [self.zanButton setBackgroundImage:image forState:UIControlStateNormal];
         NSLog(@"Unzan");
+        
+        //从全局变量取自身cell的值，减一后以新值取代
+        NSNumber *changeNumber = [appdelegate.zanNumberArray objectAtIndex:self.indexPath.row];
+        NSInteger changeValue = [changeNumber integerValue];
+        --changeValue;
+        changeNumber = [NSNumber numberWithInteger:changeValue];
+        [appdelegate.zanNumberArray replaceObjectAtIndex:self.indexPath.row withObject:changeNumber];
+        //从全局变量取值自身cell的ifZan值，若原为YES则改成NO
+        [appdelegate.ifZanArray objectAtIndex:self.indexPath.row];
+        NSString *tempString = @"NO";
+        [appdelegate.ifZanArray replaceObjectAtIndex:self.indexPath.row withObject:tempString];
+
     }
     
 }

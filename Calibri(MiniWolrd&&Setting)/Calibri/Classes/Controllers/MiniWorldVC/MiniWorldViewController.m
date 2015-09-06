@@ -23,13 +23,18 @@
    
     [self constructMenu];
     [self constructCamera];
+//    [self constructZanNumberRandomly:self.zanNumberArray];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - menu
+#pragma mark - construct
+
+
 -(void)constructMenu{
     //侧边栏按钮设置
     UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -71,38 +76,51 @@
     NSLog(@"调用发帖");
 }
 
+
 #pragma mark - dataSourceDelegateMethods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    
+    return [appdelegate.zanNumberArray count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
     static  NSString  *identifier=@"CustomCell";
     MiniWolrdTableViewCell  *cell=[tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell==nil) {
         cell=[[MiniWolrdTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        [cell setTag:200];
+        cell.indexPath = indexPath;
     }
     
-    NSInteger temp;
-    temp = arc4random() % 400;
-    cell.zanNumberLabel.text = [NSString stringWithFormat:@"%ld",(long)temp];
+    if (![[appdelegate.ifZanArray objectAtIndex:indexPath.row] isEqualToString:@"NO"]) {
+        cell.zanButton.alpha = 1;
+        UIImage *image = [UIImage imageNamed:@"get"];
+        [cell.zanButton setBackgroundImage:image forState:UIControlStateNormal];
+    }else{
+        cell.zanButton.alpha = 0.2;
+        UIImage *image = [UIImage imageNamed:@"unget"];
+        [cell.zanButton setBackgroundImage:image forState:UIControlStateNormal];
+
+    }
+    
+    NSNumber *tempNum = [[NSNumber alloc]init];
+    tempNum = [appdelegate.zanNumberArray  objectAtIndex:indexPath.row];
+    cell.zanNumberLabel.text = [NSString stringWithFormat:@"%@",tempNum];
     NSLog(@"此时应从后台读数据");
     return cell;
 }
-
-
-
 
 #pragma mark - tableViewDelagateMethods
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
     return cell.frame.size.height;
 }
+
 
 
 @end

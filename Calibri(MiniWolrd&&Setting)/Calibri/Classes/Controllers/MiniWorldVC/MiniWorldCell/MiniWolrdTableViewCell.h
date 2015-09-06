@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *belowButton;
 @property (weak, nonatomic) IBOutlet UIButton *zanButton;
 @property (weak, nonatomic) IBOutlet UILabel *zanNumberLabel;
-@property (nonatomic) BOOL ifZan;//默认为NO
+@property (nonatomic,assign) NSIndexPath *indexPath;
 
 @end
